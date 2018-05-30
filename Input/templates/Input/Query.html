@@ -1,0 +1,56 @@
+
+
+<style>
+    .container-fluid {
+        width: 100%
+    }
+    #form {
+
+        position: absolute;
+        top:40%;
+        left:30%;
+
+
+    }
+    #map {
+        position: absolute;
+        top: 60%;
+        left:20%;
+    }
+    #box {
+        width:600px;
+        height:50px;
+        text-align: center;
+        font-size: 30px;
+        font-family: Roboto mono;
+    }
+    #search-btn {
+        position: absolute;
+        left: 220px;
+        width: 150px;
+        height: 40px;
+        margin-top: 20px;
+    }
+</style>
+{% extends 'Input/Geokno_base.html' %}
+
+
+{% block body %}
+
+<div class = "container-fluid" id = "navigation">
+
+    <form action ="{% url 'Input:search' %}" method = "post" id="form">
+        {% csrf_token %}
+        <input type="text" id="box" name = "search" value = "Delhi" >
+        <br>
+        <input type="submit" id="search-btn" value = "Search">
+    </form>
+
+</div>
+
+<div id="map">
+
+</div>
+
+
+{% endblock %}

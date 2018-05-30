@@ -1,0 +1,187 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script type = "text/javascript">
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.16.min.css" type="text/css" />
+
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.16.min.js"></script>
+<script type="text/javascript">
+    Bokeh.set_log_level("info");
+</script>
+$(document).ready(function() {
+        $("#map").load("{% url 'Input:tst' %} html" );
+
+});
+</script>
+<style>
+
+    #map {
+      position: absolute;
+      left: 300px;
+
+
+  }
+    @media (max-width: 900px) {
+  .navbar-header {
+      float: none;
+  }
+  .navbar-left,.navbar-right {
+      float: none !important;
+  }
+
+  .navbar-toggle {
+      display: block;
+  }
+  .navbar-collapse {
+      border-top: 1px solid transparent;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .navbar-fixed-top {
+      top: 0;
+      border-width: 0 0 1px;
+  }
+  .navbar-collapse.collapse {
+      display: none!important;
+  }
+  .navbar-nav {
+      float: none!important;
+      margin-top: 7.5px;
+  }
+  .navbar-nav>li {
+      float: none;
+  }
+  .navbar-nav>li>a {
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+  .collapse.in{
+      display:block !important;
+  }
+}
+  .red-text {
+    color: red;
+  }
+
+  h2 {
+    font-family: Lobster, Monospace;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: Monospace;
+  }
+  #logo {
+      width : 180px;
+      height : 100px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+
+  }
+  .navbar-default {
+
+  }
+  #body {
+
+  }
+
+  .btns {
+      margins-left:600px;
+  }
+
+    #navigation {
+        margins: 0px;
+    }
+    .navbar {
+
+    }
+    #icon {
+        margin-top: 100px;
+    }
+    .navbar-right {
+        margin-right: 300px;
+    }
+
+
+</style>
+
+<div class = "container-fluid" id = "navigation">
+<nav class="navbar navbar-default ">
+    <div>
+        <div>
+            <!-- LOGO -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img src="http://www.iitk.ac.in/siic/d/sites/default/files/styles/medium/public/geo%20logo.png?itok=tSllZzFa " alt = 'Geokno_logo' class="navbar-brand" id = "logo">
+
+
+        </div>
+
+
+        <div class = "collapse navbar-collapse" id="topNavBar">
+
+            <ul class = "nav navbar-nav navbar-right">
+                <li class = "btns" id = "menu">
+                    <a href= "{% url 'Input:homepage'  %}" >
+                        <span class = "" aria-hidden = "true"><h3>Create</h3></span>&nbsp;
+                    </a>
+                </li>
+                <li class = "btns">
+                    <a href= "{% url 'Input:homepage'  %}" >
+                        <span aria-hidden = "true"><h3>delete</h3></span>&nbsp;
+                    </a>
+                </li>
+                <li class = "btns">
+                    <a href= "{% url 'Input:homepage'  %}" >
+                        <span aria-hidden = "true"><h3>query</h3></span>&nbsp;
+                    </a>
+                </li>
+                <li class = "btns">
+                    <a href= "{% url 'Input:homepage'  %}" >
+                        <span class = "" aria-hidden = "true"><h3>Create</h3></span>&nbsp;
+                    </a>
+                </li>
+                <li class = "btns">
+                    <a href= "{% url 'Input:homepage'  %}" >
+                        <span aria-hidden = "true"><h3>delete</h3></span>&nbsp;
+                    </a>
+                </li>
+                <li class = "btns">
+                    <a href= "{% url 'Input:homepage'  %}" >
+                        <span aria-hidden = "true"><h3>query</h3></span>&nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</nav>
+{% block body %}
+{% endblock %}
+
+
+
+
+</div>
+
+<div class="container-fluid" id="body">
+<body background="https://briffly.com/wp-content/uploads/Google-Maps.jpg">
+    <div id="map">
+<h3>Hello</h3>
+
+    </div>
+</body>
+</div>
+
+

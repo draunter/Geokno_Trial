@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4122745302">
+    <data-source source="LOCAL" name="Django default" uuid="da129fa6-42f7-41ff-aa84-736906ed83b5">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/Geokno_trial</jdbc-url>
+      <user-name>postgres</user-name>
+      <user-password>dfcbdfdadfdadfc6dfcfdf9bdf98df99</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
