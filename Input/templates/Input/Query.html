@@ -1,56 +1,135 @@
-
+<title>Geokno</title>
 
 <style>
-    .container-fluid {
-        width: 100%
-    }
     #form {
-
-        position: absolute;
-        top:40%;
-        left:30%;
+        position : absolute;
+        left : 90px;
+        height: 100%;
+        width :43%;
+        background: gainsboro;
+        border-radius: 10px;
 
 
     }
-    #map {
-        position: absolute;
-        top: 60%;
-        left:20%;
+
+    table, th, td {
+        border: 1px solid gainsboro;
+        border-spacing: 10px;;
     }
-    #box {
-        width:600px;
-        height:50px;
-        text-align: center;
-        font-size: 30px;
-        font-family: Roboto mono;
+
+    th, td {
+        background-color: lightyellow;
+        padding: 0px;
+        border-radius: 4px;
     }
-    #search-btn {
-        position: absolute;
-        left: 220px;
-        width: 150px;
+
+    .in {
+        width: 42%;
         height: 40px;
-        margin-top: 20px;
+        text-align: center;
+        font-size: 20px;
+        margin: 3.5%;
+        text-align-last: center; text-align: center;
+
     }
+    #table {
+        height : 80%;
+        width: 93%;
+        margin-left: 3%;
+        background: ghostwhite;
+        overflow: auto;
+
+    }
+    table {
+        margin-left: 2.5%;
+        margin-top: 3%;
+    }
+
+    select {
+        border-radius: 5px;
+    }
+
+
+
+
 </style>
 {% extends 'Input/Geokno_base.html' %}
 
 
+
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.16.min.css" type="text/css" />
+
+<script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.16.min.js"></script>
+<script type="text/javascript">
+    Bokeh.set_log_level("info");
+</script>
+<script>
+
+</script>
+
+
+
+
 {% block body %}
+<div id="form" >
+    <form name="myform" action="{% url 'Input:search' %}" method = "post">
+    {% csrf_token %}
 
-<div class = "container-fluid" id = "navigation">
 
-    <form action ="{% url 'Input:search' %}" method = "post" id="form">
-        {% csrf_token %}
-        <input type="text" id="box" name = "search" value = "Delhi" >
-        <br>
-        <input type="submit" id="search-btn" value = "Search">
+
+        <select name="type" onchange="this.form.submit();" class="in" value=>
+            <option>Select Type of Data</option>
+            <option>Raw Data</option>
+            <option>Derivative</option>
+        </select>
+
+
+        <select name="rawDataType" onchange="this.form.submit();" class="in">
+            <option >Select type</option>
+            <option >A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+
+
     </form>
 
+    <div id="table">
+        <table style="width:95%">
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+              </tr>
+              <tr>
+                <td>Jill</td>
+                <td>Smith</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>Eve</td>
+                <td>Jackson</td>
+                <td>94</td>
+              </tr>
+        </table>
+    </div>
 </div>
-
-<div id="map">
-
+<div id="map" class="map">
+Hello
 </div>
-
 
 {% endblock %}
+
+
+

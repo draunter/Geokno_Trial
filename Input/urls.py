@@ -7,7 +7,8 @@ urlpatterns = [
 
     url(r'^$',views.func,name = "homepage"),
     url(r'^search/',views.search, name="search"),
-    url(r'^tst/$',views.tst, name="tst"),
+    url(r'^tst/$',views.map, name="map"),
+    url(r'^query/$',views.query,name="query")
 
 ]
 

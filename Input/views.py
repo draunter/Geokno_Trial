@@ -5,14 +5,16 @@ from django.views import generic
 import os
 import pandas as pd
 from bokeh.io import show, output_file
-from bokeh.models import ( GMapPlot, GMapOptions, ColumnDataSource, Range1d,DataRange1d, Circle, PanTool, WheelZoomTool, PolySelectTool, BoxSelectTool )
+from bokeh.models import ( GMapPlot, GMapOptions, ColumnDataSource, Range1d,DataRange1d, Circle, PanTool, WheelZoomTool, PolySelectTool, BoxSelectTool, Square )
 import googlemaps
 import urllib.request, json
 
 
+latitude=0
+longitude=0
 # Create your views here.
 def func(request):
-    return render(request,'Input/Query.html')
+    return render(request,'Input/Homepage.html')
 
 def search(request):
     location = request.POST['search']
@@ -34,7 +36,8 @@ def search(request):
     scale = 2.5
     source = ColumnDataSource(data = dict(lat = [lat],
                                           lon= [lng],
-                                          rad = [20],
+                                          rad = [2],
+                                          size = [100]
                                           ))
 
     circle = Circle(x=lng,
@@ -42,16 +45,20 @@ def search(request):
                     size = "rad",
                     fill_color='red',
                     fill_alpha=0.5)
+    global latitude, longitude
+    latitude = lat
+    longitude = lng
+    square=Square(x=lng,y=lat, size = "size",fill_color="red", fill_alpha=0.5)
 
-    plot.add_glyph(source, circle)
+    plot.add_glyph(source, square)
     output_file('C:/Users/Mudit/PycharmProjects/Geokno_trial/Input/templates/Input/plot.html')
-    show(plot)
     return render(request,'Input/Query.html')
 
 
-def tst(request):
+def map(request):
     return render(request,'Input/plot.html')
 
 
 
-
+def query(request):
+    return render (request,'Input/Query.html')
